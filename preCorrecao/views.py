@@ -18,7 +18,7 @@ load_dotenv()
 chave = os.getenv("API_KEY")
 genai.configure(api_key=chave)
 if not chave:
-    raise ValueError("Chave da API Gemini não encontrada")
+    raise ValueError("Chave da API Gemini não encontrada") 
 
 # Extrair textos de arquivos PDF
 def extract_text_from_pdf(file_stream):
@@ -51,7 +51,7 @@ def precorrecao_view(request):
         elif file.name.endswith('.docx'):
             arquivo_texto = extract_text_from_docx(io.BytesIO(file.read()))
         elif file.name.endswith('.txt'):
-            arquivo_texto = file.read().decode('utf-8')
+            arquivo_texto = file.read().decode('utf-8') 
         else:
             return JsonResponse({"error": "Nenhum arquivo foi anexado"}, status=400)
 
@@ -99,4 +99,4 @@ def precorrecao_view(request):
         return JsonResponse({"resultado": genai_response})
         # return JsonResponse({"resultado": genai_response})
     
-    return render(request, "preCorrecao/formulario.html")
+    return render(request, "preCorrecao/formulario.html") 
